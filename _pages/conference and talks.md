@@ -7,7 +7,7 @@ nav: true
 nav_order: 2
 ---
 
-## Upcoming Talks
+## Conferences and Talks
 
 - **[2024 SIAM Conference on Material Science](https://www.siam.org/conferences/cm/conference/ms24)**\
   *Pittsburgh*\
@@ -19,7 +19,6 @@ Sciences](https://mathanddata.wvu.edu/pdes-conference)**\
   Date: April 2024
   
 
-## Past Talks
 - **[2024 Spring Southeastern Sectional Meeting](https://www.ams.org/meetings/sectional/2313_program_ss10.html)**\
   *Florida State University*\
   Date: March 2024
