@@ -1,4 +1,4 @@
-- title: "Postdoc in Mathematics"
+- title: "Visisting Assistant Professor(VAP)"
   type: "map"
   contents:
     - name: "Full Name"
@@ -9,6 +9,12 @@
 - title: "Experience"
   type: "time_table"
   contents:
+  - title: "Visiting Assistant Professor"
+  institution: "Department of Mathematics, University of California, Irvine"
+  year: "2024-2027"
+  description:
+    - "Mentor: Dr. Connor Mooney"
+
     - title: "Postdoctoral Scholar, Research"
       institution: "Department of Mathematics, Vanderbilt University"
       year: "2021-2024"
