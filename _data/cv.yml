@@ -51,7 +51,9 @@
   contents:
     - title: Machine learning
       items: 
-        - Schodinger bridge problem
+        - Generative model
+        - Langevin sampling algorithm
+        - Computational optimal transport
     - title: PDE theory in complex fluids
       items: 
         - Hydrodynamics of nematic liquid crystals
