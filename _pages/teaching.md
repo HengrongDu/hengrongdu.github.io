@@ -6,9 +6,17 @@ description: Overview of the courses I've taught.
 nav: true
 nav_order: 3
 ---
+## Instructor at UC Irvine
+**Duration**: Fall 2024-Present
+
+- **Winter 2025**: MATH 112B - Introduction to Partial Differential Equation
+- **Fall 2024**: MATH 3D - Elementary Differential Equations
+
+
+
 
 ## Instructor at Vanderbilt University
-**Duration**: Fall 2021-Present
+**Duration**: Fall 2021-Spring 2024
 
 - **Spring 2024**: MATH 3100 - Introduction to Analysis
 - **Fall 2023**: MATH 2400 - Differential Equations with Linear Algebra
