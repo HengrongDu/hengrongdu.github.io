@@ -49,6 +49,9 @@
 - title: Academic Interests
   type: nested_list
   contents:
+    - title: Machine learning
+      items: 
+        - Schodinger bridge problem
     - title: PDE theory in complex fluids
       items: 
         - Hydrodynamics of nematic liquid crystals
@@ -62,9 +65,6 @@
     - title: Geometric analysis
       items:
         - Stability of self-similar solutions 
-    - title: Machine learning
-      items: 
-        - Schodinger bridge problem
 - title: "Other Interests"
   type: "list"
   contents:
