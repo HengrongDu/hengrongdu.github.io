@@ -10,16 +10,15 @@
   type: "time_table"
   contents:
   - title: "Visiting Assistant Professor"
-  institution: "Department of Mathematics, University of California, Irvine"
-  year: "2024-2027"
-  description:
+    institution: "Department of Mathematics, University of California, Irvine"
+    year: "2024-"
+    description:
     - "Mentor: Dr. Connor Mooney"
-
-    - title: "Postdoctoral Scholar, Research"
-      institution: "Department of Mathematics, Vanderbilt University"
-      year: "2021-2024"
-      description:
-        - "Mentor: Dr. Gieri Simonett"
+  - title: "Postdoctoral Scholar, Research"
+    institution: "Department of Mathematics, Vanderbilt University"
+    year: "2021-2024"
+    description:
+    - "Mentor: Dr. Gieri Simonett"
 
 
 
