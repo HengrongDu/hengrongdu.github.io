@@ -7,7 +7,7 @@ nav: true
 nav_order: 2
 ---
 
-## Conferences and Talks
+'## Conferences and Talks'
 
 - **[2024 SIAM Conference on Material Science](https://www.siam.org/conferences/cm/conference/ms24)**\
   *Pittsburgh*\
