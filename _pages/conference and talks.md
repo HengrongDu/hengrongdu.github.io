@@ -7,16 +7,16 @@ nav: true
 nav_order: 2
 ---
 
-- **[PDE & Applied Mathematics Seminar]()**\  
-  *University of California, Riverside*\  
+- **[PDE & Applied Mathematics Seminar](https://sites.google.com/ucr.edu/ucriverside-math-ampde-seminar/)**  
+  *University of California, Riverside*  
   Date: January 2025  
 
-- **[PDEs & Applications Seminar](https://www.queensu.ca/mathstat/hengrong-du-university-california-irvine)**\  
-  *Queen’s University*\  
+- **[PDEs & Applications Seminar](https://www.queensu.ca/mathstat/hengrong-du-university-california-irvine)**  
+  *Queen’s University*  
   Date: January 2025  
 
-- **[Applied Math Seminar](https://sites.google.com/ucr.edu/ucriverside-math-ampde-seminar/)**\  
-  *The University of Alabama*\  
+- **[Applied Math Seminar]()**  
+  *The University of Alabama*  
   Date: October 2024  
 
 
