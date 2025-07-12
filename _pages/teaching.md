@@ -9,6 +9,7 @@ nav_order: 3
 ## Instructor at UC Irvine
 **Duration**: Fall 2024-Present
 
+- **Spring 2015**: MATH 3A - Introduction to Linear Algebra
 - **Winter 2025**: MATH 112B - Introduction to Partial Differential Equation
 - **Fall 2024**: MATH 3D - Elementary Differential Equations
 
