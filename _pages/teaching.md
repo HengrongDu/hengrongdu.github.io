@@ -10,8 +10,8 @@ nav_order: 3
 ## Instructor at Fisk University
 **Duration**: Fall 2025-
 
--**Fall 2025**: MATH 125 - Discrete Mathematics
--**Fall 2025**: MATH 130 - Calculus II
+- **Fall 2025**: MATH 125 - Discrete Mathematics
+- **Fall 2025**: MATH 130 - Calculus II
 
 
 ---
