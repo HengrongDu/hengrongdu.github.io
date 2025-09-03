@@ -1,4 +1,4 @@
-- title: "Visisting Assistant Professor (VAP)"
+- title: "Assistant Professor"
   type: "map"
   contents:
     - name: "Full Name"
@@ -11,7 +11,7 @@
   contents:
   - title: "Visiting Assistant Professor"
     institution: "Department of Mathematics, University of California, Irvine"
-    year: "2024-"
+    year: "2024-2025"
     description:
     - "Mentor: Dr. Connor Mooney"
   - title: "Postdoctoral Scholar, Research"
