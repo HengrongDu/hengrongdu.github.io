@@ -5,11 +5,20 @@ title: Teaching
 description: Overview of the courses I've taught.
 nav: true
 nav_order: 3
+
+---
+## Instructor at Fisk University
+**Duration**: Fall 2025-
+
+-**Fall 2025**: MATH 125 - Discrete Mathematics
+-**Fall 2025**: MATH 130 - Calculus II
+
+
 ---
 ## Instructor at UC Irvine
-**Duration**: Fall 2024-Present
+**Duration**: Fall 2024-Spring 2025
 
-- **Spring 2015**: MATH 3A - Introduction to Linear Algebra
+- **Spring 2025**: MATH 3A - Introduction to Linear Algebra
 - **Winter 2025**: MATH 112B - Introduction to Partial Differential Equation
 - **Fall 2024**: MATH 3D - Elementary Differential Equations
 
