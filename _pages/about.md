@@ -21,7 +21,7 @@ I am currently an **Assistant Professor** at the [Department of Mathematics and 
 
 
 
-**Starting Fall 2025, I will be joining [Fisk University](https://www.fisk.edu/) as a tenure-track Assistant Professor.**
+**Starting Fall 2025, I join [Fisk University](https://www.fisk.edu/) as a tenure-track Assistant Professor.**
 
 My research interests center on the analysis of partial differential equations (PDEs) with a particular focus on their applications in artificial intelligence, including the design and optimization of machine learning algorithms through PDE analysis. I also explore related areas such as the hydrodynamics of complex fluids, calculus of variations, geometric flows, and stochastic analysis.
 
