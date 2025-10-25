@@ -9,67 +9,60 @@
 - title: "Experience"
   type: "time_table"
   contents:
-  - title: "Assistant Professor"
-  institution: "Department of Mathematics and Computer Science, Fisk University"
-  year: "2025-"
-  - title: "Visiting Assistant Professor"
-  institution: "Department of Mathematics, University of California, Irvine"
-  year: "2024-2025"
-  description:
-    - "Mentor: Dr. Connor Mooney"
-  - title: "Postdoctoral Scholar, Research"
-  institution: "Department of Mathematics, Vanderbilt University"
-  year: "2021-2024"
-  description:
-    - "Mentor: Dr. Gieri Simonett"
-
-
-
+    - title: "Assistant Professor"
+      institution: "Department of Mathematics and Computer Science, Fisk University"
+      year: "2025–"
+    - title: "Visiting Assistant Professor"
+      institution: "Department of Mathematics, University of California, Irvine"
+      year: "2024–2025"
+      description:
+        - "Mentor: Dr. Connor Mooney"
+    - title: "Postdoctoral Scholar, Research"
+      institution: "Department of Mathematics, Vanderbilt University"
+      year: "2021–2024"
+      description:
+        - "Mentor: Dr. Gieri Simonett"
 
 - title: "Education"
   type: "time_table"
   contents:
     - title: "Ph.D. in Mathematics"
       institution: "Department of Mathematics, Purdue University"
-      year: 2021
+      year: "2021"
       description:
         - "Advisor: Dr. Changyou Wang"
         - "Thesis title: Compactness, existence, and partial regularity in hydrodynamics of liquid crystals"
     - title: "M.S. in Computational Mathematics"
       institution: "Beijing Normal University"
-      year: 2016
+      year: "2016"
       description:
         - "Advisor: Dr. Jiequan Li"
     - title: "B.S. in Mathematics and Applied Mathematics"
       institution: "South China Normal University"
-      year: 2012
+      year: "2012"
 
-
-
-
-
-
-- title: Academic Interests
-  type: nested_list
+- title: "Academic Interests"
+  type: "nested_list"
   contents:
-    - title: Machine learning
-      items: 
-        - Generative model
-        - Langevin sampling algorithm
-        - Computational optimal transport
-    - title: PDE theory in complex fluids
-      items: 
-        - Hydrodynamics of nematic liquid crystals
-        - Magnetoviscoelastic material
-    - title: Calculus of variations
-      items: 
-        - Optimal insulation problem
-    - title: Stochastic analysis
-      items: 
-        - Existence and regularity theory for stochastic Ericksen--Lesile system 
-    - title: Geometric analysis
+    - title: "Machine learning"
       items:
-        - Stability of self-similar solutions 
+        - "Generative models"
+        - "Langevin sampling algorithms"
+        - "Computational optimal transport"
+    - title: "PDE theory in complex fluids"
+      items:
+        - "Hydrodynamics of nematic liquid crystals"
+        - "Magnetoviscoelastic materials"
+    - title: "Calculus of variations"
+      items:
+        - "Optimal insulation problem"
+    - title: "Stochastic analysis"
+      items:
+        - "Existence and regularity theory for stochastic Ericksen--Leslie system"
+    - title: "Geometric analysis"
+      items:
+        - "Stability of self-similar solutions"
+
 - title: "Other Interests"
   type: "list"
   contents:
