@@ -8,7 +8,7 @@ nav_order: 2
 ---
 - **[Society of Applied and Computational Mathematics (SOCAMS) Annual Conference](https://www.socams.org/)**  
   *Singapore*  
-  Date: January 2026
+  Date: April 2025
 
 - **[PDE & Applied Mathematics Seminar](https://sites.google.com/ucr.edu/ucriverside-math-ampde-seminar/)**  
   *University of California, Riverside*  
