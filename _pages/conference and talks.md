@@ -6,6 +6,10 @@ description: Overview of the conferences I've attended and talks I've given.
 nav: true
 nav_order: 2
 ---
+- **[Tennessee Quantum Materials Workshop 2025](https://tn-qumat.org/workshops/work-2025/work-2025/)**  
+  *University of Tennessee, Knoxville*  
+  Date: October 2025
+  
 - **[Southern California Applied Mathematics Symposium](https://www.socams.org/)**  
   *University of California, Riverside*  
   Date: April 2025
