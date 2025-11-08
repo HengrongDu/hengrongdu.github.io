@@ -6,8 +6,8 @@ description: Overview of the conferences I've attended and talks I've given.
 nav: true
 nav_order: 2
 ---
-- **[Society of Applied and Computational Mathematics (SOCAMS) Annual Conference](https://www.socams.org/)**  
-  *Singapore*  
+- **[Southern California Applied Mathematics Symposium](https://www.socams.org/)**  
+  *University of California, Riverside*  
   Date: April 2025
 
 - **[PDE & Applied Mathematics Seminar](https://sites.google.com/ucr.edu/ucriverside-math-ampde-seminar/)**  
