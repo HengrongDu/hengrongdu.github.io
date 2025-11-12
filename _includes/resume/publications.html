@@ -1,30 +1,86 @@
 <ul class="card-text font-weight-light list-group list-group-flush">
-    {% assign publications = data[1] | sort: 'releaseDate' | reverse %}
-    {% for content in publications %}
-    <li class="list-group-item">
-      <div class="row">
-        <div class="col-xs-2 cl-sm-2 col-md-2 text-center" style="width: 75px;">
-            {% if content.releaseDate %}
-            {% assign date = content.releaseDate | split: "-" | join: "." %}
-            {% else %}
-            {% assign date = "" %}
-            {% endif %}
-          <table class="table-cv">
-            <tbody>
-              <tr>
-                <td>
-                  <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">{{date}}</span>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
-          <h6 class="title font-weight-bold ml-1 ml-md-4"><a href="{{ content.url }}">{{content.name}}</a></h6>
-          <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem;">{{content.publisher}}</h6>
-          <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic;">{{content.summary}}</h6>
-        </div>
+  {% assign publications = data[1] | sort: 'releaseDate' | reverse %}
+  {% for content in publications %}
+  <li class="list-group-item">
+    <div class="row">
+      <!-- Left badge with YEAR only -->
+      <div class="col-xs-2 cl-sm-2 col-md-2 text-center" style="width: 75px;">
+        {% if content.releaseDate %}
+          {% assign date = content.releaseDate | date: "%Y" %}
+        {% elsif content.date %}
+          {% assign date = content.date | date: "%Y" %}
+        {% else %}
+          {% assign date = "" %}
+        {% endif %}
+        <table class="table-cv">
+          <tbody>
+            <tr>
+              <td>
+                <span class="badge font-weight-bold danger-color-dark text-uppercase align-middle" style="min-width: 75px;">{{ date }}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-    </li>
-    {% endfor %}
-  </ul>
+
+      <!-- Right content -->
+      <div class="col-xs-10 cl-sm-10 col-md-10 mt-2 mt-md-0">
+        <h6 class="title font-weight-bold ml-1 ml-md-4">
+          <a href="{{ content.url }}">{{ content.name }}</a>
+        </h6>
+
+        <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem;">
+          {{ content.publisher }}
+        </h6>
+
+        {%- comment -%}
+        Clean the summary's trailing "Mon YYYY" -> "YYYY" while leaving the rest intact.
+        We detect a trailing month token and reconstruct.
+        {%- endcomment -%}
+        {% assign raw_summary = content.summary | strip %}
+        {% assign parts = raw_summary | split: ", " %}
+        {% assign last = parts | last %}
+        {% assign month_hit = false %}
+
+        {% assign months = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec" | split: "," %}
+        {% for m in months %}
+          {% if last contains m %}
+            {% assign month_hit = true %}
+          {% endif %}
+        {% endfor %}
+
+        {% if month_hit %}
+          {%- comment -%} Extract the year from the last token (e.g., "Jan 2026" -> "2026") {%- endcomment -%}
+          {% assign year_only = last | split: " " | last %}
+
+          {%- comment -%} Rebuild everything except the last token {%- endcomment -%}
+          {% assign rebuilt = "" %}
+          {% assign idx = 0 %}
+          {% assign limit_idx = parts.size | minus: 1 %}
+          {% for p in parts %}
+            {% if forloop.index0 < limit_idx %}
+              {% if idx > 0 %}
+                {% assign rebuilt = rebuilt | append: ", " %}
+              {% endif %}
+              {% assign rebuilt = rebuilt | append: p %}
+              {% assign idx = idx | plus: 1 %}
+            {% endif %}
+          {% endfor %}
+
+          {% if rebuilt != "" %}
+            {% assign clean_summary = rebuilt | append: ", " | append: year_only %}
+          {% else %}
+            {% assign clean_summary = year_only %}
+          {% endif %}
+        {% else %}
+          {% assign clean_summary = raw_summary %}
+        {% endif %}
+
+        <h6 class="ml-1 ml-md-4" style="font-size: 0.95rem; font-style: italic;">
+          {{ clean_summary }}
+        </h6>
+      </div>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
