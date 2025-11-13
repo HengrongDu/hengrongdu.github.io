@@ -6,6 +6,10 @@ description: Overview of the conferences I've attended and talks I've given.
 nav: true
 nav_order: 2
 ---
+- **[45th Annual WKU Mathematics Symposium](https://www.wku.edu/math/symposium2025.php)**  
+  *Western Kentucky University, Bowling Green, KY*  
+  Date: November 14–15, 2025
+
 - **[Tennessee Quantum Materials Workshop 2025](https://tn-qumat.org/workshops/work-2025/work-2025/)**  
   *University of Tennessee, Knoxville*  
   Date: October 2025
