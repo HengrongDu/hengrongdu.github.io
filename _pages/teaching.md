@@ -9,7 +9,10 @@ nav_order: 3
 ---
 ## Instructor at Fisk University
 **Duration**: Fall 2025-
-
+- **Spring 2026**: NSCI 285 - Bioinformatics
+- **Spring 2026**: MATH 110 - Precalculus
+- **Spring 2026**: MATH 130 - Calculus II
+- **Spring 2026**: MATH 240 - Linear Algebra
 - **Fall 2025**: MATH 125 - Discrete Mathematics
 - **Fall 2025**: MATH 130 - Calculus II
 
