@@ -11,6 +11,7 @@ profile:
   address: >
     <p>1000 17th Avenue North</p>
     <p>Nashville, TN 37208</p>
+    <p>Email: <a href="mailto:hdu@fisk.edu">hdu@fisk.edu</a> / <a href="mailto:hengrongdu@gmail.com">hengrongdu@gmail.com</a></p>
 
 news: false  # includes a list of news items
 latest_posts: false  # includes a list of the newest posts
