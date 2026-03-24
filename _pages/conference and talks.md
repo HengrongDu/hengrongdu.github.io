@@ -6,6 +6,10 @@ description: Overview of the conferences I've attended and talks I've given.
 nav: true
 nav_order: 2
 ---
+- **[Analysis Seminar](https://math.ou.edu/events/talks?4487)**  
+  *University of Oklahoma*  
+  Date: March 23, 2026
+
 - **[45th Annual WKU Mathematics Symposium](https://www.wku.edu/math/symposium2025.php)**  
   *Western Kentucky University, Bowling Green, KY*  
   Date: November 14–15, 2025
