@@ -1,0 +1,723 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Simple LaTeX CV Template %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NOTE: If you find that it says                                     %%
+%%                                                                    %%
+%%                           1 of ??                                  %%
+%%                                                                    %%
+%% at the bottom of your first page, this means that the AUX file     %%
+%% was not available when you ran LaTeX on this source. Simply RERUN  %%
+%% LaTeX to get the ``??'' replaced with the number of the last page  %%
+%% of the document. The AUX file will be generated on the first run   %%
+%% of LaTeX and used on the second run to fill in all of the          %%
+%% references.                                                        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Don't like 10pt? Try 11pt or 12pt
+\documentclass[12pt]{article}
+
+% The automated optical recognition software used to digitize resume
+% information works best with fonts that do not have serifs. This
+% command uses a sans serif font throughout. Uncomment both lines (or at
+% least the second) to restore a Roman font (i.e., a font with serifs).
+\usepackage{times}
+%\renewcommand{\familydefault}{\sfdefault}
+\usepackage{amsmath}
+\usepackage{amssymb}
+% This is a helpful package that puts math inside length specifications
+\usepackage{calc}
+\usepackage{comment}
+
+% Simpler bibsection for CV sections
+% (thanks to natbib for inspiration)
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em} %1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newenvironment{bibsection}%
+        {\begin{enumerate}{}{%
+%        {\begin{list}{}{%
+       \setlength{\leftmargin}{\bibhang}%
+       \setlength{\itemindent}{-\leftmargin}%
+       \setlength{\itemsep}{\bibsep}%
+       \setlength{\parsep}{\z@}%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{enumerate}\vspace{-.6\baselineskip}}
+%        {\end{list}\vspace{-.6\baselineskip}}
+\makeatother
+
+% Layout: Puts the section titles on left side of page
+\reversemarginpar
+
+%
+%         PAPER SIZE, PAGE NUMBER, AND DOCUMENT LAYOUT NOTES:
+%
+% The next \usepackage line changes the layout for CV style section
+% headings as marginal notes. It also sets up the paper size as either
+% letter or A4. By default, letter was used. If A4 paper is desired,
+% comment out the letterpaper lines and uncomment the a4paper lines.
+%
+% As you can see, the margin widths and section title widths can be
+% easily adjusted.
+%
+% ALSO: Notice that the includefoot option can be commented OUT in order
+% to put the PAGE NUMBER *IN* the bottom margin. This will make the
+% effective text area larger.
+%
+% IF YOU WISH TO REMOVE THE ``of LASTPAGE'' next to each page number,
+% see the note about the +LP and -LP lines below. Comment out the +LP
+% and uncomment the -LP.
+%
+% IF YOU WISH TO REMOVE PAGE NUMBERS, be sure that the includefoot line
+% is uncommented and ALSO uncomment the \pagestyle{empty} a few lines
+% below.
+%
+
+%% Use these lines for letter-sized paper
+\usepackage[paper=letterpaper,
+            %includefoot, % Uncomment to put page number above margin
+            marginparwidth=1.2in,     % Length of section titles
+            marginparsep=.05in,       % Space between titles and text
+            margin=1in,               % 1 inch margins
+            includemp]{geometry}
+
+%% Use these lines for A4-sized paper
+%\usepackage[paper=a4paper,
+%            %includefoot, % Uncomment to put page number above margin
+%            marginparwidth=30.5mm,    % Length of section titles
+%            marginparsep=1.5mm,       % Space between titles and text
+%            margin=25mm,              % 25mm margins
+%            includemp]{geometry}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+\usepackage[shortlabels]{enumitem}
+
+%% Reference the last page in the page number
+%
+% NOTE: comment the +LP line and uncomment the -LP line to have page
+%       numbers without the ``of ##'' last page reference)
+%
+% NOTE: uncomment the \pagestyle{empty} line to get rid of all page
+%       numbers (make sure includefoot is commented out above)
+%
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+%\pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}}
+
+% Finally, give us PDF bookmarks
+\usepackage{color,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks,breaklinks,
+            linkcolor=darkblue,urlcolor=darkblue,
+            anchorcolor=darkblue,citecolor=darkblue}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The title (name) with a horizontal rule under it
+% (optional argument typesets an object right-justified across from name
+%  as well)
+%
+% Usage: \makeheading{name}
+%        OR
+%        \makeheading[right_object]{name}
+%
+% Place at top of document. It should be the first thing.
+% If ``right_object'' is provided in the square-braced optional
+% argument, it will be right justified on the same line as ``name'' at
+% the top of the CV. For example:
+%
+%       \makeheading[\emph{Curriculum vitae}]{Your Name}
+%
+% will put an emphasized ``Curriculum vitae'' at the top of the document
+% as a title. Likewise, a picture could be included:
+%
+%   \makeheading[\includegraphics[height=1.5in]{my_picutre}]{Your Name}
+%
+% the picture will be flush right across from the name.
+\newcommand{\makeheading}[2][]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+             {\large \bfseries #2 \hfill #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+% The section headings
+%
+% Usage: \section{section name}
+\renewcommand{\section}[1]{\pagebreak[3]%
+    \hyphenpenalty=10000%
+    \vspace{1.3\baselineskip}%
+    \phantomsection\addcontentsline{toc}{section}{#1}%
+    \noindent\llap{\scshape\smash{\parbox[t]{\marginparwidth}{\raggedright #1}}}%
+    \vspace{-\baselineskip}\par}
+
+% An itemize-style list with lots of space between items
+\newenvironment{outerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*]}{\end{itemize}%
+         \vspace{-.6\baselineskip}}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{lonelist}[1][\enskip\textbullet]%
+        {\begin{list}{#1}{%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{list}\vspace{-.6\baselineskip}}
+
+% An itemize-style list with little space between items
+\newenvironment{innerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
+        {\end{itemize}}
+
+% An environment IDENTICAL to innerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{loneinnerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1,leftmargin=*,parsep=0pt,itemsep=0pt,topsep=0pt,partopsep=0pt]}
+        {\end{itemize}\vspace{-.6\baselineskip}}
+
+% To add some paragraph space between lines.
+% This also tells LaTeX to preferably break a page on one of these gaps
+% if there is a needed pagebreak nearby.
+\newcommand{\blankline}{\quad\pagebreak[3]}
+\newcommand{\halfblankline}{\quad\vspace{-0.5\baselineskip}\pagebreak[3]}
+
+% Uses hyperref to link DOI
+\newcommand\doilink[1]{\href{http://dx.doi.org/#1}{#1}}
+\newcommand\doi[1]{doi:\doilink{#1}}
+
+% For \url{SOME_URL}, links SOME_URL to the url SOME_URL
+\providecommand*\url[1]{\href{#1}{#1}}
+% Same as above, but pretty-prints SOME_URL in teletype fixed-width font
+\renewcommand*\url[1]{\href{#1}{\texttt{#1}}}
+
+% For \email{ADDRESS}, links ADDRESS to the url mailto:ADDRESS
+\providecommand*\email[1]{\href{mailto:#1}{#1}}
+% Same as above, but pretty-prints ADDRESS in teletype fixed-width font
+%\renewcommand*\email[1]{\href{mailto:#1}{\texttt{#1}}}
+
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+%\providecommand\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+%    \TeX}}
+\providecommand\BibTeX{{B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    \TeX}}
+\providecommand\Matlab{\textsc{Matlab}}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\makeheading{\LARGE{Hengrong Du}}
+
+ 
+
+\section{Contact Information}
+
+% NOTE: Mind where the & separators and \\ breaks are in the following
+%       table.
+%
+% ALSO: \rcollength is the width of the right column of the table
+%       (adjust it to your liking; default is 1.85in).
+%
+\newlength{\rcollength}\setlength{\rcollength}{2.5in}%
+%
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{\rcollength}}
+%\href{http://www.cse.osu.edu/}%
+%     {Department of Computer Science and Engineering} & \\
+%\href{http://www.osu.edu/}{The Ohio State University}
+Department of Mathematics  &Page: \href{https://hengrongdu.netlify.app/}{https://hengrongdu.netlify.app/}\\Vanderbilt University%\\2201 West End Ave.,\\Nashville, TN 37235, USA  
+&E-mail: \email{hengrong.du@vanderbilt.edu}\\
+\end{tabular}
+
+%\section{Objective}
+
+%Insert text here if you want to
+%\begin{innerlist}
+%\item More information and auxiliary documents can be found at\\\url{http://www.tedpavlic.com/facjobsearch/}
+%\end{innerlist}
+
+%\section{Personal Information}
+
+%Date of Birth:  June 17, 1990\\
+%Place of Birth: Shantou, Guangdong Province, China
+
+\section{Research Interests}
+
+Partial differential equations, geometric measure theory, calculus of variations, stochastic analysis, fluid dynamics, and machine learning
+
+
+\section{Academic Positions}
+
+\href{https://www.vanderbilt.edu/}{\textbf{Vanderbilt University}}, Nashville, TN, USA \hfill Sep. 2021-Aug. 2024\\
+%\begin{outerlist}
+Postdoc Scholar (Research), 
+\href{https://as.vanderbilt.edu/math/}{Department of Mathematics} \\
+%\begin{innerlist}
+Mentor:
+\href{https://math.vanderbilt.edu/simoneg/}{\textbf{Dr. Gieri Simonett}}
+%\item Research Area: Mathematical analysis of nonlinear PDEs
+%\end{innerlist}
+%\end{outerlist}
+
+\section{Education}
+\href{https://www.purdue.edu/}{\textbf{Purdue University}},
+West Lafayette, IN  \hfill   Aug. 2016-Aug. 2021\\
+%\begin{outerlist}
+Ph.D.,
+        \href{https://www.math.purdue.edu/}
+           {Mathematics}
+          \\
+       % \begin{innerlist}
+ Advisor:
+             \href{https://www.math.purdue.edu/~wang2482/}
+                  {\textbf{Dr.  Changyou Wang}} 
+      %  \item Research Area: %\emph{Mathematical analysis of complex fluids}
+       %\item  Thesis Title: \emph{On the Radial Symmetric Solutions to Conservation Laws}  
+       %\item  Cumulative GPA: 3.71  
+  %      \end{innerlist}
+
+%\end{outerlist}
+\vspace{.1in}
+\href{https://english.bnu.edu.cn/}{\textbf{Beijing Normal University}},
+Beijing, China     \hfill   Sep. 2013-July 2016
+%\begin{outerlist}
+
+M.S.,
+        \href{http://math.english.bnu.edu.cn/}
+           {Computational Mathematics}
+       \\
+    %    \begin{innerlist}
+Advisor:
+             \href{http://math0.bnu.edu.cn/~lijiequan/}
+                  {\textbf{Dr. Jiequan Li}} 
+  %      \item Research Area: \emph{Hyperbolic Conservation Laws}
+   %    \item  Thesis Title: \emph{On the Radial Symmetric Solutions to Hyperbolic \\ Conservation Laws}  
+      % \item  Cumulative GPA: 3.71  
+  %      \end{innerlist}
+                
+%\item[] B.S.,
+%        \href{http://202.116.32.252:8080/maths/index.php/}
+%             {Mathematics and Applied Mathematics},
+%             July 2013
+%        \begin{innerlist}
+%        \item Topic: \emph{Assessing the Impact of the Density of Alcohol Establishments on Crime in Minneapolis Neighborhoods Using Univariate and Multivariate Conditionally Autoregressive Models}
+%        \item Advisor:
+%              \href{http://www.biostat.umn.edu/~brad/}
+%                   {Bradley P. Carlin, Ph.D}
+ %       \end{innerlist}
+%\end{outerlist}
+\vspace{.1in}
+\href{http://english.scnu.edu.cn/}{\textbf{South China Normal University}},
+Guangzhou, China \hfill Sep. 2009-July 2013\\
+%\begin{outerlist}
+B.S.,
+        \href{http://maths.scnu.edu.cn/}
+             {Mathematics and Applied Mathematics} \\
+   %     \begin{innerlist}
+%        Cumulative GPA: 3.81
+      %  \end{innerlist}
+%\end{outerlist}
+
+%\section{Research Experience}
+
+%\textbf{Research Assistant} \hfill {May 2011 to present}
+%\begin{innerlist}
+
+%\item[] Division of Biostatistics,\\
+%        University of Minnesota\\
+%        Supervisor: Bradley P. Carlin, Ph.D
+%\end{innerlist}
+%\textbf{Research Assistant} \hfill {June 2010 to May 2011}
+%\begin{innerlist}
+
+%\item[] Division of Epidemiology,\\
+%        University of Minnesota\\
+%        Supervisors: Traci L. Toomey, Ph.D and Bradley P. Carlin, Ph.D
+%\end{innerlist}
+%\textbf{Research Assistant} \hfill {Sept 2008 to Aug 2010}
+%\begin{innerlist}
+
+%\item[] Division of Biostatistics,\\
+%        University of Minnesota\\
+%        Supervisors: Katherine Huppler-Hullsiek, Ph.D and Jason V. Baker, M.D., M.S.
+%\end{innerlist}
+
+%\section{Refereed Journal Publications}
+\section{Publications}
+\vspace{-.13in}
+\begin{bibsection}
+\item Hengrong Du, Gieri Simonett, Yuanzhen Shao. \emph{On a thermodynamically consistent model for magnetoviscoelastic fluids in 3D}. J. Evol. Equ. 24 (2024), no. 9, 1-51. 
+\item Wei Deng, Yu Chen, Nicole Tianjiao Yang, Hengrong Du, Qi Feng, Ricky T. Q. Chen. \emph{On convergence of approximate Schr\"{o}dinger bridge with bounded cost}. ICML Workshop on New Frontiers in Learning, Control, and Dynamical Systems (2023).
+\item Hengrong Du, Nung Kwan Yip. \emph{Stability of self-similar solutions to geometric flows. } Interfaces Free Bound. 25 (2023), no. 2, 155–191.
+
+\item Hengrong Du, Qinfeng Li, Changyou Wang. \emph{Compactness of $M$-uniform domains and optimal thermal insulation problems.} Adv. Calc. Var. 16 (2023), no. 1, 17-43.
+
+\item Hengrong Du, Yuanzhen Shao, Gieri Simonett. \emph{Well-posedness for magneto-viscoelastic fluids in 3D}. Nonlinear Anal. Real World Appl. 69 (2023), no. 103759.
+
+\item Hengrong Du, Tao Huang, Changyou Wang. \emph{Weak compactness property of simplified nematic liquid crystal flows in dimension two}. Math. Z. 302  (2022), no.~2, 2111-2130.
+
+\item Hengrong Du, Changyou Wang. \emph{Global weak solutions to the stochastic Ericksen–Leslie system in dimension two.}  Discrete Contin. Dyn. Syst. 42 (2022),  no. 5, 2175-2197.
+
+\item Hengrong Du,  Changyou Wang. \emph{Partial regularity of a nematic liquid crystal model with kinematic transport effects. }Nonlinearity 34 (2021), no. 5, 3001-3045.
+
+\item Hengrong Du, Yimei Li, Changyou Wang. \emph{Weak solutions of non-isothermal nematic liquid crystal flow in dimension three.} J. Elliptic Parabol. Equ. 6 (2020), no. 1, 71-98.
+
+\item Hengrong Du, Xianpeng Hu, Changyou Wang. \emph{Suitable Weak Solutions for the Co-rotational Beris–Edwards System in Dimension Three.} Arch. Ration. Mech. Anal. 238 (2020), no. 2, 749-803.
+
+\end{bibsection}
+
+\section{Onging work}
+\vspace{-.13in}
+\begin{bibsection}
+
+
+\item Hengrong Du, Chuntian Wang. \emph{Partial regularity for the three-dimensional stochastic Ericksen--Leslie Equations
+}, \href{https://arxiv.org/abs/2401.03662}{arXiv:2401.03662}. 
+
+\item Wei Deng, Yu Chen, Nicole Tianjiao Yang, Hengrong Du, Qi Feng, Ricky T. Q. Chen. \emph{Reflected Schrödinger bridge for constrained generative modeling
+}, 
+\href{https://arxiv.org/abs/2401.03228}{arXiv:2401.03228}.
+
+\item  Yikun Bai, Rocio Diaz Martin, Hengrong Du, Ashkan Shahbazi, Soheil Kolouri. \emph{Efficient solvers for partial Gromov-Wasserstein}, \href{https://arxiv.org/abs/2402.03664}{arXiv:2402.03664}. 
+\item Haoyang Zheng, Hengrong Du, Qi Feng, Wei Deng, Guang Lin. \emph{Constrained exploration via reflected replica exchange stochastic gradient langevin dynamics}, submitted.
+%\item Hengrong Du, Tao Huang, Changyou Wang. \emph{Heat flow of $s$-harmonic maps to spheres
+%}, in preparation. 
+
+
+%\item Hengrong Du, Seongmin Jeon. \emph{On the inhomogeneous parabolic boundary Harnack principle}, in preparation. 
+%    \item Hengrong Du, Tao Huang,  Changyou Wang. \emph{Weak compactness of simplified nematic liquid flows in 2D.}
+ %   \href{https://arxiv.org/abs/2006.04210}{arXiv:2006.04210}.
+
+%     \item Hengrong Du, Changyou Wang. \emph{Global weak solutions to the Stochastic Ericksen--Leslie equations in dimension two. }\href{https://arxiv.org/abs/2011.09355}{arXiv:2011.09355}.
+     
+
+\end{bibsection}
+%\section{Submitted Journal Publications}
+%\vspace{-.13in}
+%\begin{bibsection}
+%    \item Toomey, T.L., Erickson, D.J., Carlin, B.P., Lenk, K.M., {\bf Quick, H.S.}, and Harwood, E.M. ``Do neighborhood attributes moderate the relationship between alcohol establishment density and crime?" 2012. Submitted to \emph{Prevention Science}.
+  % \item {\bf Hengrong Du}, Qinfeng Li, Changyou Wang. \emph{Compactness of $M$-uniform domains and optimal thermal insulation problems.} \href{https://arxiv.org/abs/2008.11144}{arXiv:2008.11144}.
+   % \item {\bf Hengrong Du}, Tao Huang,  Changyou Wang. \emph{Weak compactness of simplified nematic liquid flows in 2D.}
+   % \href{https://arxiv.org/abs/2006.04210}{arXiv:2006.04210}.
+    %  \item {\bf Hengrong Du},  Changyou Wang. \emph{Partial regularity of a nematic liquid crystal model with kinematic transport effects. }\href{https://arxiv.org/abs/2006.13174}{arXiv:2006.13174}.
+%\end{bibsection}
+
+% Add a little space to nudge next ``Conference Publications'' marginpar
+% down to make room for tall ``Submitted Journal Publications''
+% marginpar. If there are enough submitted journal publications, this
+% space will not be needed (and should be removed).
+%\vspace{0.1in}
+%\section{Papers in Preparation}
+%\vspace{-.13in}
+%\begin{bibsection}
+ %   \item Hengrong Du, Nung Kwan Yip. \emph{Stability of self-similar solutions in Geometric flows involving mean curvature.}
+  %  \item Hengrong Du,  Changyou Wang. \emph{Partial regularity of the general Ericksen--Leslie system in 3D.}
+%    \item {\bf Quick, H.}, Banerjee, S., and Carlin, B.P. ``Heteroscedastic variances in areally referenced temporal processes with an application to California asthma hospitalization data.''
+
+%    \item {\bf Quick, H.}, Carlin, B.P., and Banerjee, S. ``Space-time Gaussian process modeling of temporal air pollution gradients."
+%\end{bibsection}
+
+%\section{Awards}
+%Travel Awards
+%\begin{innerlist}
+%\item Workshop on Environmetrics, Raleigh, NC\hfill Oct 2012
+%\item Case Studies in Bayesian Statistics and\hfill Oct 2011\\
+%Machine Learning, Pittsburgh, PA
+%\item IMS/ISBA Joint International Meeting, Park City, UT\hfill Jan 2011
+%\end{innerlist}
+
+
+%Student Awards --- Beijing Normal University, Graduate School
+%\begin{innerlist}
+%\item Outstanding Teaching Assistant Award\hfill Fall 2015
+%\item Outstanding Research Assistant Award\hfill May 2011
+%\item James R. Boen Student Achievement Award\hfill May 2009
+%\item National Scholarship For Graduate (for  top  5  percent  graduate  students\\  in Beijing Normal University)\hfill Fall 2014
+%\end{innerlist}
+%\item University Mathematics Competition, First Prize \hfill Fall 2010 Fall 2012
+\halfblankline
+
+\section{Awards}
+\begin{innerlist}
+\item Bilsland Dissertation Fellowship
+\hfill June 2020-May 2021\\
+It is intended to give the most accomplished final-year PhD candidates an opportunity to complete the dissertation within the 2020--21 academic year by devoting full-time effort to research and writing.
+\end{innerlist}
+
+\halfblankline
+
+\section{Talks}
+\begin{innerlist}
+\item \href{https://math.ou.edu/events/talks?4487}{Analysis Seminar}\\
+The University of Oklahoma \hfill March 2026
+\item AMS Special Section on Dynamics and Regularity of PDEs\\
+Joint Mathematics Meeting (upcoming) \hfill January 2024
+\item Seminar on Analysis and Stochastic Analysis \\
+Auburn University (upcoming) \hfill November 2023
+\item PDE Seminar\\
+Tennessee  of Tennessee, Knoxville  (upcoming)\hfill October 2023
+\item PDE/Applied Math Semin\\ Indiana University Bloomington (upcoming)\hfill October 2023    
+\item Richard F. Barry Jr. Seminar Series\\
+Old Dominion University \hfill September 2023
+\item The 13th AIMS Conference \\
+University of North Carolina Wilmington \hfill June 2023
+\item AMS Spring Central Sectional Meeting\\
+University of Cincinnati \hfill April 2023
+\item Undergraduate Seminar in Mathematics\\
+Vanderbilt University \hfill March 2023
+\item Analysis Seminar\\
+Wayne State University\hfill March 2023
+\item 3rd Biennial Meeting of SIAM Pacific Northwest Section\\ Washington State University\hfill May 2022
+
+\item AMS Spring Central Virtual Sectional Meeting\\ Purdue University\hfill March 2022
+
+\item Graduate Online Mini-course\\ Beijing Normal University\hfill November 2021
+
+\item PDE Seminar Fall 2021\\ Vanderbilt University\hfill September 2021
+
+\item Analysis Seminar\\ The University of Alabama\hfill February 2021
+
+\item PDE Seminar\\ Purdue University\hfill September 2020
+
+\item Student Analysis Seminar\\ Purdue University\hfill February 2020
+
+\item Student Analysis Seminar\\ Purdue University\hfill February 2020
+
+\item PDE Seminar\\ Purdue University\hfill January 2020
+
+%\item Math Seminar\\ Beijing Normal University\hfill June 2019
+
+%\item Math Graduate Research Day\\ Purdue University\hfill November 2018
+
+%\item \emph{Sobolev Inequalities on Generalized Submanifolds of 
+%$\mathbb{R}^n$}, Geometric Analysis Reading Seminar, Purdue University (April 2017)
+%\item \emph{On the Hardy-Littlewood maximal function in $\mathbb{R}^n$, as     $n\to\infty$}, Harmonic Analysis Student Seminar, Purdue University (March 2017)
+\end{innerlist}
+%Student Awards --- South China Normal University
+%\begin{innerlist}
+%\item University Mathematics Competition, First Prize (for only 2 students in South China Normal University) \hfill Fall 2010$\&$Fall 2012
+%\item National Scholarship For Undergraduate (for  top  5  percent  undergraduate\\  students in South China Normal University) \hfill Fall 2010
+
+
+
+
+%\begin{innerlist}
+%    \item The Doctoral Dissertation Fellowship (DDF) program is intended to give the most accomplished final-year PhD candidates an opportunity to complete the dissertation within the 2012--13 academic year by devoting full-time effort to research and writing.
+%\end{innerlist}
+%\end{innerlist}
+
+\section{Conference Participation}
+\begin{innerlist} 
+%\item 3rd Biennial Meeting of SIAM Pacific Northwest Section, Washington State University, Vancouver, Washington, USA \hfill May 20-22, 2022
+\item Rivière-Fabes Symposium on Analysis and PDE
+\\
+University of Minnesota\hfill Apr. 19-21, 2023
+\item Shanks Workshop on Advances in Mathematical and Theoretical Biology\\
+Vanderbilt University \hfill Mar. 17-19, 2023
+\item Workshop on Geometry and Analysis of Fluid Flows\\ Stony Brook University \hfill Jan. 16-20, 2023
+\item AMS Fall Central Sectional Meeting\\
+University of Texas at El Paso \hfill Sep. 17-18, 2022
+
+\item Shanks Workshop on Mathematical Aspect of Fluid Dynamics\\
+Vanderbilt University \hfill Feb. 19-20, 2022
+%\item AMS Spring Central Virtual Sectional Meeting, Purdue University, West Lafayette, Indiana, USA \hfill March 26-27, 2022
+
+
+
+\item KUMUNU-ISU Conference on PDE, Dynamical Systems, and Applications\\ University of Nebraska-Lincoln\hfill Oct. 23-24, 2021
+
+\item AMS Fall Western Sectional Meeting\\ Online\hfill Oct. 23-24, 2021
+
+%\item Thematic Program on Mathematical Hydrodynamics\\ The Fields Institute for Research in Mathematical Sciences\hfill July 1-Dec 31, 2020
+
+\item The 84th Midwest PDE Seminar\\ Illinois Institute of Technology\hfill Oct. 26-27, 2019
+
+\item Midwest Geometry Conference 2019\\ Iowa State University\hfill Sept. 6-8, 2019
+
+\item The 83rd Midwest PDE Seminar\\ Indiana University Bloomington\hfill Mar. 30-31, 2019
+
+%\item The 82nd Midwest PDE Seminar\\ Purdue University\hfill Oct. 27-28, 2018
+
+%\item PCMI Graduate Summer School\\ IAS/Park City Mathematics Institute\hfill July 1-21, 2018
+
+%\item John H. Barrett Memorial Lectures\\ University of Tennessee, Knoxville\hfill May 29-June 1, 2018
+
+%\item Workshop on Calculus of Variations and Nonlinear PDEs\\ University of California, Berkeley\hfill May 22-June 2, 2017
+
+%\item Workshop on Stochastic Processes and Its Applications in Physics and\\ Biology, Beijing, China \hfill Dec. 12-13, 2015
+%\item Workshop on Stochastic Analysis and Related Topics, Beijing, \\China  \hfill Nov. 30-Dec. 2, 2015
+%\item The 8th International Congress on Industrial and Applied Mathematics,\\ Beijing, China \hfill Aug. 10-14, 2015
+%\item Workshop of Mathematical Analysis, Modeling, and Computations on\\ Liquid Crystals and Related Topics, Beijing, China \hfill Aug. 8-9, 2015
+%\item International School on Numerical Relativity, Beijing, China \hfill Jul 27 - Aug 3, 2014
+%\item Sino-German Symposium on Modern Numerical Methods for Compressible\\ Fluid Flows and Related Problems, Beijing, China\hfill May 21-27, 2014
+%Machine Learning, Pittsburgh, PA
+%\item Biometric Society (ENAR) Regional Meeting, Miami, FL \hfill Mar 2011
+%\item IMS/ISBA Joint International Meeting, Park City, UT \hfill Jan 2011
+\end{innerlist}
+
+%\halfblankline
+
+%University of Minnesota
+%\begin{innerlist}
+%\item Mostly Markov Chain Seminar Series \hfill Nov 2011
+%\item School of Public Health Research Day \hfill Apr 2011
+%\end{innerlist}
+
+
+\section{Teaching Experience}
+
+%\textbf{Teaching Assistant} \hfill {Springs 2011--12}
+%Teaching Assistant
+Instructor at Vanderbilt University
+\hfill {Fall 2021-Present}
+\begin{innerlist}
+
+\item MATH 2400 Differential Equations with Linear Algebra\hfill Fall 2023
+\item MATH 3100 Introduction to Analysis \hfill Spring 2023
+\item MATH 3100 Introduction to Analysis \hfill Fall 2022
+\item MATH 1301 Accelerated Single-Variable Calculus II \hfill Fall 2022
+\item MATH 2420 Methods of Ordinary Differential Equations \hfill Spring 2022
+\item MATH 2400 Differential Equations with Linear Algebra \hfill Spring 2022
+
+
+\end{innerlist}
+
+Recitation Instructor at Purdue University
+\hfill {Fall 2016-Summer 2021}
+\begin{innerlist}
+%\item MA36200 Topics In Vector Calculus\hfill Fall 2016
+%\item MA34100 Foundations Of Analysis\hfill Spring 2017
+%\item MA26200 Linear Algebra And Differential Equations \hfill Summer 2017
+%\item MA44000H Real Analysis-Honors\hfill Fall 2017
+%\item MA44200H Real Analysis-Honors 2\hfill Spring 2018
+\item MA 26200 Linear Algebra And Differential Equations\hfill Fall 2019
+\item MA 16200 Plane Analytic Geometry And Calculus II\hfill Spring 2019
+\item MA 16500 Plane Analytic Geometry And Calculus I\hfill Fall 2018
+%\item MA50400 Real Analysis\hfill Spring 2020
+\end{innerlist}
+%\begin{innerlist}
+%\item[] \emph{Calculus for Humanity}, 
+%        Instructor: Assistant Professor Jingang Xiong\\
+ %       School of Mathematical Sciences,
+ %       Beijing Normal University
+%\end{innerlist}
+%\vspace{0.2cm}
+%%\begin{innerlist}
+
+%\item[] \emph{Calculus for Psychology},
+%        Instructor: Associate Professor Guanghua Ji\\
+ %       School of Mathematical Sciences,
+ %       Beijing Normal University
+%\end{innerlist}
+
+%\section{Other Experience}
+%Education Internship, Kaiqiao High School, Jiangmen, Guangdong \\ \rightline{Sep. 2012 -- Nov. 2012}
+%\begin{innerlist}
+ %   \item Organized and managed a class of 60 students
+ %   \item Prepared and delivered math lessons, marked students' work and provided necessary feedback, criticism, encouragement and support%; answer questions from a student's perspective
+%\end{innerlist}
+
+
+
+%Education Volunteer, Feilaixia No.1 Middle School, Qingyuan, Guangdong \\ \rightline{Jul. 2010 -- Aug. 2010}
+%\begin{innerlist}
+ %   \item Taught math and history to local students
+ %   \item Conducted a survey of the local well-being index
+%\end{innerlist}
+%\halfblankline
+
+%\section{References}
+%\ \ \ \  Professor Changyou Wang
+%\vspace{.1in}
+%\begin{innerlist}
+%\item[] Department of Mathematics \hfill {Phone:+1 765 49-42719}\\
+%Purdue University \hfill{E-mail: wang2482@purdue.edu}\\
+%\end{innerlist}
+
+%\halfblankline
+%Professor  Rodrigo Ba{\~{n}}uelos
+%\begin{innerlist}
+%\item[] \item[] Department of Mathematics \hfill {Phone: +1 765 49-41977}\\
+%Purdue University \hfill{E-mail: banuelos@purdue.edu}\\
+%\end{innerlist}
+%\halfblankline
+%Professor Nung Kwan Yip
+%\begin{innerlist}
+%\item[] \item[] Department of Mathematics \hfill {Phone: +1 765 49-41941}\\
+%Purdue University \hfill{E-mail: yipn@purdue.edu}\\
+%\end{innerlist}
+%\halfblankline
+%Professor Patricia E Bauman
+%\begin{innerlist}
+%\item[] \item[] Department of Mathematics \hfill {Phone: +1 765 49-41945}\\
+%Purdue University \hfill{E-mail: baumanp@purdue.edu}\\
+%\end{innerlist}
+%\halfblankline
+%Doctor Dominic Naughton
+%\begin{innerlist}
+%\item[] \item[] Department of Mathematics \hfill {Phone: +1 765 49-41906}\\
+%Purdue University \hfill{E-mail: dnaughto@purdue.edu}\\
+%\end{innerlist}
+%\section{Hardware and Software Skills}
+%\begin{comment}
+%Computer Programming:
+%
+%\begin{innerlist}
+%    \item C, C$+$$+$, Java, JavaScript, NetLogo, Pascal, Perl, PHP,
+%        Lisp, UNIX shell scripting (including POSIX.2), GNU make,
+%        AppleScript, SQL, MySQL, \Matlab, Maple, Mathematica, and others
+%\end{innerlist}
+
+%\halfblankline
+%\end{comment}
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------%
+% The following is copyright and licensing information for
+% redistribution of this LaTeX source code; it also includes a liability
+% statement. If this source code is not being redistributed to others,
+% it may be omitted. It has no effect on the function of the above code.
+%----------------------------------------------------------------------%
+% Copyright (c) 2007, 2008, 2009, 2010, 2011 by Theodore P. Pavlic
+%
+% Unless otherwise expressly stated, this work is licensed under the
+% Creative Commons Attribution-Noncommercial 3.0 United States License. To
+% view a copy of this license, visit
+% http://creativecommons.org/licenses/by-nc/3.0/us/ or send a letter to
+% Creative Commons, 171 Second Street, Suite 300, San Francisco,
+% California, 94105, USA.
+%
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+% OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+% MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+% IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+% CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+% TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+% SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+%----------------------------------------------------------------------%
+

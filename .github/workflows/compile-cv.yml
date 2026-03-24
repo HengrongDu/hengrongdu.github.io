@@ -1,0 +1,31 @@
+name: Compile CV
+on:
+  push:
+    paths:
+      - 'assets/pdf/src/**' # Triggers when you edit files in this folder
+  workflow_dispatch: # Allows manual triggering from GitHub Actions tab
+
+jobs:
+  build_cv:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Needed to commit the PDF back to the repo
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Compile LaTeX CV
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: Hengrong_CV.tex # Match the name of your main .tex file
+          working_directory: assets/pdf/src
+
+      - name: Move PDF to pdf folder
+        run: |
+          mv assets/pdf/src/Hengrong_CV.pdf assets/pdf/Hengrong_CV.pdf
+
+      - name: Commit and push the Auto-compiled PDF
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Auto-compile CV PDF from LaTeX"
+          file_pattern: "assets/pdf/Hengrong_CV.pdf"
