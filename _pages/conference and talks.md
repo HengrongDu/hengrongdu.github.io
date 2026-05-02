@@ -113,6 +113,9 @@ Sciences](https://mathanddata.wvu.edu/pdes-conference)**\
 
 ## Conferences Attended
 
+- **2026 Rivière-Fabes Symposium on Analysis and PDE**  
+  University of Minnesota, Twin Cities campus, May 1–3, 2026
+
 - **Rivière-Fabes Symposium on Analysis and PDE**  
   University of Minnesota, Apr. 19-21, 2023
 
