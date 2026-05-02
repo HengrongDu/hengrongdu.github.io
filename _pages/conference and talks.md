@@ -116,6 +116,15 @@ Sciences](https://mathanddata.wvu.edu/pdes-conference)**\
 - **2026 Rivière-Fabes Symposium on Analysis and PDE**  
   University of Minnesota, Twin Cities campus, May 1–3, 2026
 
+- **Tennessee Quantum Materials Workshop**  
+  Tennessee State University, Nov. 7, 2025
+
+- **Lean for PDEs, an ICARM & SLMath collaboration (Virtual)**  
+  The Simons Laufer Mathematical Sciences Institute, Oct. 6-9, 2025
+
+- **Summer School on Theory and Applications of Elliptic PDE**  
+  University of California, Irvine, June 23-27, 2025
+
 - **Rivière-Fabes Symposium on Analysis and PDE**  
   University of Minnesota, Apr. 19-21, 2023
 
