@@ -114,7 +114,8 @@ Sciences](https://mathanddata.wvu.edu/pdes-conference)**\
 ## Conferences Attended
 
 - **International Congress of Mathematicians (ICM) 2026**  
-  Philadelphia, July 23–30, 2026
+  Philadelphia, July 23–30, 2026  
+  Recipient of an ICM 2026 Travel Grant from the American Mathematical Society (AMS)
 
 - **2026 Rivière-Fabes Symposium on Analysis and PDE**  
   University of Minnesota, Twin Cities campus, May 1–3, 2026
