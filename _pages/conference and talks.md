@@ -113,6 +113,9 @@ Sciences](https://mathanddata.wvu.edu/pdes-conference)**\
 
 ## Conferences Attended
 
+- **The 47th Midwest Probability Colloquium**<br>
+  Northwestern University, Evanston, IL, October 15–17, 2026
+
 - **International Congress of Mathematicians (ICM) 2026**  
   Philadelphia, July 23–30, 2026  
   Recipient of an ICM 2026 Travel Grant from the American Mathematical Society (AMS)
